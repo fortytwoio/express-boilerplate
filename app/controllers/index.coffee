@@ -9,8 +9,8 @@ DELETE  /:id              ->  exports.destroy
 ###
 
 app = require "../"
-projectName = app.get 'project_name'
-debug = require("debug")("#{projectName}:app:controllers:index")
+applicatioName = app.get 'application_name'
+debug = require("debug")("#{applicatioName}:app:controllers:index")
 
 
 exports.index = (request, response) ->

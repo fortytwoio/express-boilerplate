@@ -1,11 +1,15 @@
 ###
-  GET     /          ->  index
-  GET     /new       ->  new
-  POST    /          ->  create
-  GET     /:Id       ->  show
-  GET     /:Id/edit  ->  edit
-  PUT     /:Id       ->  update
-  DELETE  /:Id       ->  destroy
+  GET     /          ->  actions.index
+  GET     /new       ->  actions.new
+  POST    /          ->  actions.create
+  GET     /:Id       ->  actions.show
+  GET     /:Id/edit  ->  actions.edit
+  PUT     /:Id       ->  actions.update
+  DELETE  /:Id       ->  actions.destroy
+###
+
+###
+  TODO: Rethink how libs in general should be passed to mounted apps
 ###
 express = require "express"
 defaultRoutingSetup = module.exports = (actions, middlewares) ->

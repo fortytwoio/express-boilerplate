@@ -1,8 +1,8 @@
 {
-  "name": "express-template",
+  "name": "express-boilerplate",
   "description": "Express Boilerplate project for all kind of web applications or REST APIs",
   "author": "Thomas Fritz <fritztho@gmail.com>",
-  "homepage": "https://github.com/thomasfr/express-template",
+  "homepage": "https://github.com/thomasfr/express-boilerplate",
   "private": true,
   "engines": {
     "node": ">=0.10.25 <=0.12"
@@ -29,13 +29,13 @@
   "scripts": {
     "start": "coffee index.coffee",
     "dev": "NODE_ENV=development DEBUG_COLORS=y nodemon --ext js,coffee,jade,json --ignore tmp/ --ignore var/ --ignore app/public/",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thomasfr/express-template.git"
+    "url": "https://github.com/thomasfr/express-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/thomasfr/express-template/issues"
+    "url": "https://github.com/thomasfr/express-boilerplate/issues"
   }
 }

@@ -18,8 +18,8 @@ app.settings = _.assign app.settings, parentSettings
 parentLocals = if module.parent?.exports?.locals then module.parent.exports.locals else {}
 app.locals = _.assign app.locals, parentLocals
 
-projectName = app.get 'project_name'
-debug = debugModule "#{projectName}:app"
+applicationName = app.get 'application_name'
+debug = debugModule "#{applicationName}:app"
 
 viewBaseDir = path.join __dirname, "views"
 app.set "views", viewBaseDir

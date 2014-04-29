@@ -1,15 +1,19 @@
 {
   "locals":   {
-    "main_title": "Express Template"
+    "main_title": "Express Boilerplate",
+    "brand_name": "Express-Boilerplate"
   },
   "settings": {
-    "neo4j":        {
+    "neo4j":            {
       "url": "http://localhost:7474"
     },
-    "session":      {
+    "mongodb":          {
+      "connectionUrl": "mongodb://127.0.0.1:27017/test"
+    },
+    "session":          {
       "secret": "abcdefghjiklmno",
       "key":    "session"
     },
-    "project_name": "express-template"
+    "application_name": "express-boilerplate"
   }
 }

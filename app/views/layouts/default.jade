@@ -19,7 +19,7 @@ html(lang="en")
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href="#{baseurl}/") #{brand_name}
-        div#main-navigation.w-collapse.navbar-collapse.collapse
+        div#main-navigation.navbar-collapse.collapse
           ul.nav.navbar-nav
             li.dropdown
               a.dropdown-toggle(href="#",data-toggle="dropdown") Menu 1
@@ -30,11 +30,12 @@ html(lang="en")
                 li
                   a(href="#{baseurl}/test/foo") Submenu 2
             li: a(href="#{baseurl}/new/") New Index
+            li: a(href="#{baseurl}/test/message") Add a message
 
     if messages
-      .container.w-container-messages
+      .container
         each message, index in messages
-          div(class="w-alert alert alert-dismissable alert-" + message.type)
+          div(class="alert alert-dismissable alert-" + message.type)
             button.close(type="button",data-dismiss="alert",aria-hidden="true") &times;
             if message.title
               h4 #{message.title}
@@ -43,7 +44,7 @@ html(lang="en")
             button.btn.btn-success(type="button",data-dismiss="alert",aria-hidden="true") OK
 
 
-    section.container.w-container-main
+    section.container
       block body
 
     script(src="//code.jquery.com/jquery-2.1.0.min.js")

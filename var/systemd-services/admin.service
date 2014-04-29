@@ -1,19 +1,19 @@
 [Unit]
-Description=Express Template Application
+Description=Express Boilerplate Application
 Requires=network.target
 After=network.target
 
 [Service]
-WorkingDirectory=/var/www/express-app
+WorkingDirectory=/var/www/express-boilerplate
 ExecStart=/bin/bash -c 'npm run start'
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=express-app
+SyslogIdentifier=express-boilerplate
 User=www-data
 Group=www-data
 
-Environment="NODE_ENV=production" "DEBUG=express-app:*"
+Environment="NODE_ENV=production" "DEBUG=express-boilerplate:*"
 
 [Install]
 WantedBy=multi-user.target

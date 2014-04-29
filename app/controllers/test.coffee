@@ -1,6 +1,6 @@
 app = require "../"
-projectName = app.get 'project_name'
-debug = require("debug")("#{projectName}:app:controllers:test")
+applicationName = app.get 'application_name'
+debug = require("debug")("#{applicationName}:app:controllers:test")
 
 exports.index = (request, response) ->
   debug "requested test/index", request.query
@@ -13,5 +13,13 @@ exports.getFoo = (request, response) ->
   debug "request.path", request.path
   debug "app.path.path", request.app.path()
   response.render "test/foo"
+
+exports.addMessage = (request, response) ->
+  debug "Add a message to the session"
+  request.session.messages.push
+    type:  "success"
+    title: "Successfully did something!"
+    text:  "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
+  response.render "test/message"
 
 
