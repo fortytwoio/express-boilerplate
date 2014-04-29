@@ -3,11 +3,12 @@ test:
 	npm run test
 
 install:
+	@echo "Installing all dependencies"
 	npm install
 
 update:
 	@echo "Makefile: Updating Express Boilerplate App"
-	npm install
+	npm update
 
 deploy_production:
 	@echo "Deploy to production"

@@ -12,13 +12,18 @@ hostname = process.env.APP_HOSTNAME or app.settings.hostname or '127.0.0.1'
 projectName = app.get 'project_name'
 debug = debugModule "#{projectName}"
 
-# Application Mounting.
+# Application Mounting:
 app.use "/", require "./app"
 
-## You can also use a different url prefix if you want. Make sure you use 'baseurl' in your views
+## As you can see, your app(s) can also be each seperate node modules (even public npm modules if you want so)
+#app.use "/fancydashboard/", require "fancy-dashboard"
+
+## You can also use a different url prefix if you want. Make sure you use 'baseurl' in your views:
 #app.use "/mynewapp/", require "./app"
-#app.use "/app-2", require "./app-2"
-#app.use "/app-3", require "./app-3"
+
+## Just add more apps and mount them:
+#app.use "/app-2/", require "./app-2"
+#app.use "/app-3/", require "./app-3"
 
 app.listen port, hostname, ->
   debug "Listening on http://#{hostname}:#{port}"
