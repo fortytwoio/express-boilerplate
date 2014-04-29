@@ -16,7 +16,7 @@ A `Makefile`, with `install` target is included:
 make install
 ```
 
-Create the `config/config.json' file. A template file is included. 
+Create the `config/config.json' file. A template file is included.
 ```shell
 cp config/config.json.tpl config/config.json
 vim config/config.json
@@ -37,6 +37,9 @@ In Production you should create a init script. If you use a linux distribution w
 ```shell
 NODE_ENV="production" DEBUG="express-boilerplate*" npm run start
 ```
+
+## Setup git push deployment?
+Take a look at "[How to setup git push deployment in 7 easy steps](https://gist.github.com/thomasfr/9691385)"
 
 Thats it. :)
 

@@ -9,8 +9,8 @@ app.locals = _.assign app.locals, config.locals or {}
 port = process.env.APP_PORT or app.settings.port or 3000
 hostname = process.env.APP_HOSTNAME or app.settings.hostname or '127.0.0.1'
 
-projectName = app.get 'project_name'
-debug = debugModule "#{projectName}"
+applicationName = app.get 'application_name'
+debug = debugModule "#{applicationName}"
 
 # Application Mounting:
 app.use "/", require "./app"
