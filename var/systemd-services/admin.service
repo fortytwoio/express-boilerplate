@@ -1,0 +1,19 @@
+[Unit]
+Description=Express Template Application
+Requires=network.target
+After=network.target
+
+[Service]
+WorkingDirectory=/var/www/express-app
+ExecStart=/bin/bash -c 'npm run start'
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=express-app
+User=www-data
+Group=www-data
+
+Environment="NODE_ENV=production" "DEBUG=express-app:*"
+
+[Install]
+WantedBy=multi-user.target

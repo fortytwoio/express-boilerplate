@@ -1,0 +1,9 @@
+.idea
+.idea/*
+node_modules/
+logs/*
+tmp/*
+config/*
+!config/*.tpl
+*.pid
+npm-debug.log
