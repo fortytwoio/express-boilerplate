@@ -7,8 +7,8 @@
   "engines": {
     "node": ">=0.10.25 <=0.12"
   },
-  "version": "0.0.2",
-  "main": "index.coffee",
+  "version": "0.0.3",
+  "main": "index.js",
   "dependencies": {
     "body-parser": "^1.0.0",
     "coffee-script": "^1.7.0",
@@ -27,7 +27,7 @@
     "nodemon": "1.0.x"
   },
   "scripts": {
-    "start": "coffee index.coffee",
+    "start": "node ./",
     "dev": "NODE_ENV=development DEBUG_COLORS=y nodemon --ext js,coffee,jade,json --ignore tmp/ --ignore var/ --ignore app/public/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
