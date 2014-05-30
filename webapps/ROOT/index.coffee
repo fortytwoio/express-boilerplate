@@ -8,8 +8,9 @@ debugModule = require "debug"
 morgan = require "morgan"
 errorHandler = require "errorhandler"
 _ = require "lodash"
-fileloader = require "loadfiles"
 setupAppRouting = require "setup-app-routing"
+
+fileloader = require "loadfiles"
 load = fileloader __dirname, "coffee"
 
 app = module.exports = express()
@@ -31,7 +32,7 @@ app.locals.basedir = viewBaseDir # This will allow us to use absolute paths in j
 if "development" is app.get "env"
   app.locals.pretty = true # This will pretty print html output in development mode
   app.set "view cache", false
-  app.use express.static(path.join(__dirname, 'public'))
+  app.use express.static(path.join(__dirname, 'public')) # Use static middleware in dev, and use e.g. nginx in production for static asset serving
   app.use morgan("dev")
 else
   app.locals.pretty = false

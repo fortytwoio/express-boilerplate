@@ -4,7 +4,7 @@ debug = logger "setup-app-routing"
 module.exports = setupAppRouting = (app, controllers, routers) ->
 
   setup = (routeName, actions) ->
-    debug "Setting up '#{routeName}' routes"
+    debug "Setting up routes for '#{routeName}'"
     if routers.hasOwnProperty(routeName)
       setupRouting = routers[routeName]
     else

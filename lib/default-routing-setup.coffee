@@ -8,8 +8,8 @@
   DELETE  /:Id       ->  actions.destroy
 ###
 
+express = require "express"
 module.exports = defaultRoutingSetup = (actions) ->
-  express = require "express"
   router = express.Router()
   if actions.index then router.get "/", actions.index
   if actions.new then router.get "/new", actions.new
