@@ -1,1 +1,2 @@
-gulp.task "default", ["less"]
+gulp.task "default",
+  "less"
