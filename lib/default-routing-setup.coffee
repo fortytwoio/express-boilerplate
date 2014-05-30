@@ -8,11 +8,8 @@
   DELETE  /:Id       ->  actions.destroy
 ###
 
-###
-  TODO: Rethink how libs in general should be passed to mounted apps
-###
-express = require "express"
-defaultRoutingSetup = module.exports = (actions, middlewares) ->
+module.exports = defaultRoutingSetup = (actions) ->
+  express = require "express"
   router = express.Router()
   if actions.index then router.get "/", actions.index
   if actions.new then router.get "/new", actions.new
