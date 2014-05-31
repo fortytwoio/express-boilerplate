@@ -25,6 +25,11 @@
   },
   "devDependencies": {
     "gulp": "^3.6.2",
+    "gulp-changed": "^0.3.0",
+    "gulp-imagemin": "^0.5.1",
+    "gulp-livereload": "^1.5.0",
+    "gulp-nodemon": "^1.0.3",
+    "gulp-open": "^0.2.8",
     "nodemon": "^1.0.0"
   },
   "scripts": {
