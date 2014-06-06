@@ -7,7 +7,6 @@ configFilePath = path.resolve __dirname, "..", "config"
 config = require configFilePath
 assert = require "assert"
 util = require "util"
-async = require "async"
 setupAppRouting = require "./setup-app-routing"
 fileloader = require "loadfiles"
 
@@ -20,14 +19,27 @@ app.locals = _.assign app.locals, config.locals or {}
 port = process.env.APP_PORT or app.settings.port or 3000
 hostname = process.env.APP_HOSTNAME or app.settings.hostname or '127.0.0.1'
 
-applicationName = app.get "application_name"
+applicationName = app.settings['application_name'] or "#{path.basename(path.resolve(__dirname, ".."))}"
 assert applicationName, "'application_name' is missing in '#{configFilePath}'."
 
 debug = debugModule "#{applicationName}"
 
-webappsPath = app.get "webapps_path"
+webappsPath = app.settings['webapps_path'] or "webapps"
 assert webappsPath, "'webapps_path' is missing in '#{configFilePath}'."
 webappsPath = path.resolve webappsPath
+
+rootPath = path.resolve __dirname, ".."
+
+# For Variant 2:
+app.getDebug = (filename)->
+  relativePath = path.relative webappsPath, filename
+  extname = path.extname relativePath
+  basename = path.basename relativePath, extname
+
+  relativeIdentifier = path.dirname relativePath
+  .split "/"
+  .join ":"
+  return debugModule "#{applicationName.toLowerCase()}:#{relativeIdentifier.toLowerCase()}:#{basename.toLowerCase()}"
 
 
 loadWebApps webappsPath, (error, webapps) ->
@@ -37,11 +49,24 @@ loadWebApps webappsPath, (error, webapps) ->
   # webapp: { mountpoint: '/', app: [express app], name: "ROOT", path: "/path/to/webapps/ROOT" }
   webapps.forEach (webapp) ->
     debug "Mounting '#{webapp.name}' at '#{webapp.mountpoint}'"
-    ## Initialize the
+
+    # Initialize the file loader with the path to the webapp
     loader = fileloader webapp.path, "coffee"
 
-    ## TODO: Refactor this ugly piece of code. Please.
-    ## directory structure should be configurable in package.json according to commonjs
+    # The directory structure should be configurable in package.json according to commonjs.
+    # Also if this app should be bootstrapped or not. Opt-In
+
+    # For Variant 1:
+    webapp.app.getDebug = (filename)->
+      relativePath = path.relative webapp.path, filename
+      extname = path.extname relativePath
+      basename = path.basename relativePath, extname
+
+      relativeIdentifier = path.dirname relativePath
+      .split "/"
+      .join ":"
+      return debugModule "#{applicationName}:#{webapp.name.toLowerCase()}:#{relativeIdentifier}:#{basename}"
+
     routers = loader "routers"
     controllers = loader "controllers"
     setupAppRouting webapp.app, controllers, routers
