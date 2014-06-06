@@ -1,7 +1,6 @@
 express = require "express"
 
-app = require ".."
-debug = app.getDebug __filename
+debug = ROOT.get("debug")(__filename)
 
 module.exports = setupTestRouter = (actions) ->
   debug "Doing router setup"

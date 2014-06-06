@@ -1,6 +1,6 @@
 debugModule = require "debug"
-debug = debugModule "lib:setup-app-routing"
-defaultRoutingSetup = require "./default-routing-setup"
+debug = debugModule "setupapprouting"
+defaultRoutingSetup = require "./defaultroutingsetup"
 
 module.exports = setupAppRouting = (app, controllers, routers) ->
   setup = (routeName, actions) ->

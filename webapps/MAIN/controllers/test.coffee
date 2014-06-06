@@ -1,6 +1,4 @@
-app = require "../"
-applicationName = app.get 'application_name'
-debug = require("debug")("#{applicationName}:app:controllers:test")
+debug = ROOT.get("debug")(__filename)
 
 exports.index = (request, response) ->
   debug "requested test/index", request.query
@@ -17,9 +15,9 @@ exports.getFoo = (request, response) ->
 exports.addMessage = (request, response) ->
   debug "Add a message to the session"
   request.session.messages.push
-    type:  "success"
+    type: "success"
     title: "Successfully did something!"
-    text:  "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
+    text: "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
   response.render "test/message"
 
 

@@ -1,5 +1,5 @@
 debugModule = require "debug"
-debug = debugModule "lib:load-web-apps"
+debug = debugModule "loadwebapps"
 express = require "express"
 assert = require "assert"
 

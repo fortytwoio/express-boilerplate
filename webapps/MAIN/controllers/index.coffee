@@ -8,20 +8,7 @@ PUT     /:id              ->  exports.update
 DELETE  /:id              ->  exports.destroy
 ###
 
-
-## BEFORE:
-#app = require "../"
-#applicatioName = app.get 'application_name'
-#debug = require("debug")("#{applicatioName}:app:controllers:index")
-
-## VARIANT 1:
-app = require "../"
-debug = app.getDebug __filename
-debug "Test Debug Message"
-
-
-## VARIANT 2:
-debug = ROOT.getDebug __filename
+debug = ROOT.get("debug")(__filename)
 debug "Another Test Debug Message"
 
 exports.index = (request, response) ->

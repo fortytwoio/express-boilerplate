@@ -1,10 +1,11 @@
+debug = ROOT.get("debug")(__filename)
+
 path = require "path"
 express = require "express"
 favicon = require "static-favicon"
 cookieParser = require "cookie-parser"
 session = require "cookie-session"
 bodyParser = require "body-parser"
-debugModule = require "debug"
 morgan = require "morgan"
 errorHandler = require "errorhandler"
 util = require "util"
@@ -18,8 +19,6 @@ parentLocals = if ROOT.locals then ROOT.locals else {}
 app.locals = _.assign app.locals, parentLocals
 applicationName = app.get 'application_name'
 
-debug = debugModule "#{applicationName}:app"
-
 viewBaseDir = path.join __dirname, "views"
 app.set "views", viewBaseDir
 app.set "view engine", "jade"
@@ -27,11 +26,13 @@ app.set "trust proxy", true
 app.locals.basedir = viewBaseDir # This will allow us to use absolute paths in jade when using the 'extends' directive
 
 if "development" is app.get "env"
+  debug "Setting development settings"
   app.locals.pretty = true # This will pretty print html output in development mode
   app.set "view cache", false
   app.use express.static(path.join(__dirname, 'public')) # Use static middleware in dev, and use e.g. nginx in production for static asset serving
   app.use morgan("dev")
 else
+  debug "Setting production settings"
   app.locals.pretty = false
   app.set "view cache", true
   app.use morgan()
@@ -60,5 +61,6 @@ app.use (request, response, next) ->
 
 
 if "development" is app.get "env"
+  debug "Adding errorHandler"
   app.use errorHandler()
 
