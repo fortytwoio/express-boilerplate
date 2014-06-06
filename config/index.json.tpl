@@ -14,6 +14,7 @@
       "secret": "abcdefghjiklmno",
       "key":    "session"
     },
-    "application_name": "express-boilerplate"
+    "application_name": "express-boilerplate",
+    "webapps_path": "webapps"
   }
 }

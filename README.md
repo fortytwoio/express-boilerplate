@@ -16,10 +16,10 @@ A `Makefile`, with `install` target is included:
 make install
 ```
 
-Create the `config/config.json' file. A template file is included.
+Create the `config/index.json' file. A template file is included.
 ```shell
-cp config/config.json.tpl config/config.json
-vim config/config.json
+cp config/index.json.tpl config/index.json
+open config/index.json
 ```
 
 

@@ -1,33 +1,51 @@
 express = require "express"
 debugModule = require "debug"
 _ = require "lodash"
-fs = require "fs"
+loadWebApps = require "./load-web-apps"
 path = require "path"
-config = require "./../config/config.json"
+configFilePath = path.resolve __dirname, "..", "config"
+config = require configFilePath
+assert = require "assert"
+util = require "util"
+async = require "async"
+setupAppRouting = require "./setup-app-routing"
+fileloader = require "loadfiles"
 
-app = module.exports = express()
+assert config.settings, "Configuration should contain a 'settings' hash"
+
+module.exports = app = express()
 app.settings = _.assign app.settings, config.settings or {}
 app.locals = _.assign app.locals, config.locals or {}
+
 port = process.env.APP_PORT or app.settings.port or 3000
 hostname = process.env.APP_HOSTNAME or app.settings.hostname or '127.0.0.1'
 
-applicationName = app.get 'application_name'
+applicationName = app.get "application_name"
+assert applicationName, "'application_name' is missing in '#{configFilePath}'."
+
 debug = debugModule "#{applicationName}"
 
-webappsPath = path.resolve __dirname, "..", "webapps"
-contents = fs.readdirSync webappsPath
-webapps = contents.filter (content) ->
-  stats = fs.statSync path.resolve(webappsPath, content)
-  return stats.isDirectory()
+webappsPath = app.get "webapps_path"
+assert webappsPath, "'webapps_path' is missing in '#{configFilePath}'."
+webappsPath = path.resolve webappsPath
 
-webapps.forEach (webappName) ->
-  webappPath = path.resolve webappsPath, webappName
-  debug "Requiring '#{webappName}' at '#{webappPath}'"
-  webapp = require webappPath
-  mountpoint = "/#{webappName}/"
-  if webappName == "ROOT" then mountpoint = "/"
-  debug "Mounting app '#{webappName}' at mountpoint '#{mountpoint}'"
-  app.use mountpoint, webapp
 
-app.listen port, hostname, ->
-  debug "Listening on http://#{hostname}:#{port}"
+loadWebApps webappsPath, (error, webapps) ->
+  debug "Loaded %s webapp(s)", webapps.length
+
+  # Mounting all found webapps
+  # webapp: { mountpoint: '/', app: [express app], name: "ROOT", path: "/path/to/webapps/ROOT" }
+  webapps.forEach (webapp) ->
+    debug "Mounting '#{webapp.name}' at '#{webapp.mountpoint}'"
+    ## Initialize the
+    loader = fileloader webapp.path, "coffee"
+
+    ## TODO: Refactor this ugly piece of code. Please.
+    ## directory structure should be configurable in package.json according to commonjs
+    routers = loader "routers"
+    controllers = loader "controllers"
+    setupAppRouting webapp.app, controllers, routers
+    app.use webapp.mountpoint, webapp.app
+
+  app.listen port, hostname, ->
+    debug "Listening on http://#{hostname}:#{port}"

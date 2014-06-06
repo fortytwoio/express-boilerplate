@@ -1,14 +1,15 @@
-logger = require "debug"
-debug = logger "lib/setup-app-routing"
+debugModule = require "debug"
+debug = debugModule "lib:setup-app-routing"
+defaultRoutingSetup = require "./default-routing-setup"
 
 module.exports = setupAppRouting = (app, controllers, routers) ->
   setup = (routeName, actions) ->
     debug "Setting up routes for '#{routeName}'"
-    if routers.hasOwnProperty(routeName)
+    if routers.hasOwnProperty routeName
       setupRouting = routers[routeName]
     else
       debug "Using default routing setup for '#{routeName}'"
-      setupRouting = require "default-routing-setup"
+      setupRouting = defaultRoutingSetup
     if routeName == "index"
       route = "/"
     else

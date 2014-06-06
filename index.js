@@ -1,2 +1,2 @@
 require("coffee-script/register");
-module.exports = require("./lib/main");
+module.exports = global.ROOT = ROOT = require("./lib/main");

@@ -7,20 +7,17 @@ bodyParser = require "body-parser"
 debugModule = require "debug"
 morgan = require "morgan"
 errorHandler = require "errorhandler"
+util = require "util"
 _ = require "lodash"
-setupAppRouting = require "setup-app-routing"
-
-fileloader = require "loadfiles"
-load = fileloader __dirname, "coffee"
 
 app = module.exports = express()
 
-parentSettings = if module.parent?.exports?.settings then module.parent.exports.settings else {}
+parentSettings = if ROOT.settings then ROOT.settings else {}
 app.settings = _.assign app.settings, parentSettings
-parentLocals = if module.parent?.exports?.locals then module.parent.exports.locals else {}
+parentLocals = if ROOT.locals then ROOT.locals else {}
 app.locals = _.assign app.locals, parentLocals
-
 applicationName = app.get 'application_name'
+
 debug = debugModule "#{applicationName}:app"
 
 viewBaseDir = path.join __dirname, "views"
@@ -45,8 +42,8 @@ app.use cookieParser()
 sessionSettings = app.get "session"
 app.use session
   secret: sessionSettings.secret
-  key:    sessionSettings.key
-  proxy:  true
+  key: sessionSettings.key
+  proxy: true
 
 
 # Make sure session.messages always exists and is an array
@@ -65,8 +62,3 @@ app.use (request, response, next) ->
 if "development" is app.get "env"
   app.use errorHandler()
 
-
-routers = load "routers"
-controllers = load "controllers"
-
-setupAppRouting app, controllers, routers

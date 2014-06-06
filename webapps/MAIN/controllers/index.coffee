@@ -20,5 +20,3 @@ exports.index = (request, response) ->
 exports.new = (request, response) ->
   debug "Requested index/new"
   response.render "index/new"
-
-
