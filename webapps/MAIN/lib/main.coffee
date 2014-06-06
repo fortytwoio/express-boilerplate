@@ -1,5 +1,3 @@
-debug = ROOT.get("debug")(__filename)
-
 path = require "path"
 express = require "express"
 favicon = require "static-favicon"
@@ -8,8 +6,9 @@ session = require "cookie-session"
 bodyParser = require "body-parser"
 morgan = require "morgan"
 errorHandler = require "errorhandler"
-util = require "util"
 _ = require "lodash"
+
+debug = ROOT.get("debug")(__filename)
 
 app = module.exports = express()
 
@@ -17,9 +16,8 @@ parentSettings = if ROOT.settings then ROOT.settings else {}
 app.settings = _.assign app.settings, parentSettings
 parentLocals = if ROOT.locals then ROOT.locals else {}
 app.locals = _.assign app.locals, parentLocals
-applicationName = app.get 'application_name'
 
-viewBaseDir = path.join __dirname, "views"
+viewBaseDir = path.join __dirname, "..", "views"
 app.set "views", viewBaseDir
 app.set "view engine", "jade"
 app.set "trust proxy", true
@@ -29,7 +27,7 @@ if "development" is app.get "env"
   debug "Setting development settings"
   app.locals.pretty = true # This will pretty print html output in development mode
   app.set "view cache", false
-  app.use express.static(path.join(__dirname, 'public')) # Use static middleware in dev, and use e.g. nginx in production for static asset serving
+  app.use express.static(path.join(__dirname, "..", "public")) # Use static middleware in dev, and use e.g. nginx in production for static asset serving
   app.use morgan("dev")
 else
   debug "Setting production settings"

@@ -9,7 +9,6 @@ DELETE  /:id              ->  exports.destroy
 ###
 
 debug = ROOT.get("debug")(__filename)
-debug "Another Test Debug Message"
 
 exports.index = (request, response) ->
   debug "Requested index"
