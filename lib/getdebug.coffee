@@ -11,4 +11,4 @@ module.exports = getDebug = (applicationName, applicationRootPath)->
     .split "/"
     debugParts.push filename
     relativeIdentifier = debugParts.join ":"
-    return debugModule "#{applicationName}::#{relativeIdentifier.toLowerCase()}"
+    return debugModule "#{applicationName}:#{relativeIdentifier.toLowerCase()}"

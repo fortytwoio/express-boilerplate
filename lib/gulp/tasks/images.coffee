@@ -1,8 +1,8 @@
 imagemin = require "gulp-imagemin"
 
 module.exports = () ->
-  src = "public/images/**"
-  dest = "build/images"
+  src = "./webapps/MAIN/public/img/**/*.*"
+  dest = "./public/img"
 
   gulp
   .src src

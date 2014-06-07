@@ -27,7 +27,6 @@ if "development" is app.get "env"
   debug "Setting development settings"
   app.locals.pretty = true # This will pretty print html output in development mode
   app.set "view cache", false
-  app.use express.static(path.join(__dirname, "..", "public")) # Use static middleware in dev, and use e.g. nginx in production for static asset serving
   app.use morgan("dev")
 else
   debug "Setting production settings"

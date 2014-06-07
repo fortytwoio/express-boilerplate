@@ -29,6 +29,9 @@ getDebug = require("./getDebug")(applicationName, path.resolve __dirname, "..")
 app.set "debug", getDebug
 debug = getDebug __filename
 
+# Use static middleware in dev, and use e.g. nginx in production for static asset serving
+app.use express.static path.resolve ( "./public")
+
 rootPath = path.resolve __dirname, ".."
 
 loadWebApps webappsPath, (error, webapps) ->

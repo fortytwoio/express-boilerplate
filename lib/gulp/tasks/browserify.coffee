@@ -3,17 +3,21 @@ watchify = require "watchify"
 coffeeify = require "coffeeify"
 source = require "vinyl-source-stream"
 
+dest = "./public/js/"
+
 module.exports = ->
   browserify
-    entries: ["./public/src/coffee/app.coffee"]
+    entries: [
+      "./webapps/MAIN/public/coffee/app.coffee"
+    ]
     extensions: [
       ".coffee"
+      ".js"
+      ".json"
     ]
-
-
-  .bundle debug: false
+  .bundle
+      debug: true
   .on "error", handleErrors
   .pipe source("app.js")
-  .pipe
-  .pipe gulp.dest("./public/build/js/")
+  .pipe gulp.dest(dest)
 

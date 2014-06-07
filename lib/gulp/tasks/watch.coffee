@@ -1,5 +1,4 @@
 module.exports = () ->
-  gulp.watch "public/less/**/*.less", ["less"]
-  gulp.watch "public/img/**/*.*", ["images"]
-
-  config.isWatching = true
+  gulp.watch "./webapps/**/public/coffee/**/*.coffee", ["browserify"]
+  gulp.watch "./webapps/**/public/less/**/*.less", ["less"]
+  gulp.watch "./webapps/**/public/img/**/*.*", ["images"]
