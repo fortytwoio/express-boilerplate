@@ -1,7 +1,7 @@
-
 1.0.0 / 2014-06-10 
 ==================
 
+ * Added empty public dir
  * Increased version to 1.0.0
  * Added Gulp Task setup with watch, browserify, less, imagemin tasks. Added make corresponding npm run conigs and make targets
  * Basic gulp functionality is in
