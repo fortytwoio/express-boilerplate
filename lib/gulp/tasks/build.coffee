@@ -1,5 +1,1 @@
-module.exports = [
-  "browserify",
-  "less",
-  "images"
-]
+gulp.task "build", ["browserify", "less", "images", "copy"]

@@ -1,11 +1,11 @@
 imagemin = require "gulp-imagemin"
 
-module.exports = () ->
-  src = "./webapps/MAIN/public/img/**/*.*"
-  dest = "./public/img"
+SRC = "./webapps/MAIN/public/img/**/*.*"
+DEST = "./public/img/"
 
+gulp.task "images", ()->
   gulp
-  .src src
-  .pipe changed(dest)
-  .pipe imagemin()
-  .pipe gulp.dest(dest)
+  .src SRC
+  .pipe changed(DEST)
+  .pipe imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })
+  .pipe gulp.dest(DEST)

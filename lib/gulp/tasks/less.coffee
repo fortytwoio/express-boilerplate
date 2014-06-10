@@ -1,13 +1,13 @@
 less = require "gulp-less"
 
-module.exports = ()->
-  src = "./webapps/MAIN/public/less/**/*.less"
-  dest = "./public/css"
+SRC = "./webapps/MAIN/public/less/**/*.less"
+DEST = "./public/css"
 
+gulp.task "less", ()->
   gulp
-  .src src
-  .pipe changed(dest)
+  .src SRC
+  .pipe changed(DEST)
   .pipe less
     sourceMap: true
-  .pipe gulp.dest dest
+  .pipe gulp.dest(DEST)
 

@@ -39,8 +39,7 @@ app.use cookieParser()
 
 sessionSettings = app.get "session"
 app.use session
-  secret: sessionSettings.secret
-  key: sessionSettings.key
+  keys: [sessionSettings.secret]
   proxy: true
 
 

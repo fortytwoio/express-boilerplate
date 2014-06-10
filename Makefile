@@ -1,15 +1,28 @@
+all: watch
+
 test:
-	@echo "Start testing"
-	npm run test
+	@npm run test
+
+clean:
+	@npm run clean
+	@echo "Removing './node_modules' dir"
+	@rm -rf "./node_modules"
+	@echo "Removing './tmp' dir"
+	@rm -rf "./tmp"
+
+build:
+	@npm run build
+
+watch:
+	@npm run watch
 
 install:
-	@echo "Installing all dependencies"
-	npm install
+	@npm install
 
 update:
-	@echo "Makefile: Updating Express Boilerplate App"
-	npm update
+	@npm update
 
 deploy:
-	@echo "Deploy to production"
 	git push git@app.example.com:~/express-boilerplate master
+
+.PHONY: all test clean build watch install update deploy

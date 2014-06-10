@@ -1,9 +1,10 @@
 
 foo = require "./foo"
+bar = require "./bar"
 
 test = () ->
-  alert "hallo"
   foo()
+  bar()
 
 test()
 

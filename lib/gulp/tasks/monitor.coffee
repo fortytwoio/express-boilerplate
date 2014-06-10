@@ -1,16 +1,18 @@
 nodemon = require "gulp-nodemon"
 
-module.exports = ()->
+gulp.task "monitor", ()->
   nodemon
     script: "./"
-    ext: "coffee js jade json"
-    ignore: [
-      "./var/**",
-      "./tmp/**",
-      "./webapps/**/public/**/*.*",
+    ext: "coffee js json"
+    verbose: false
+    watch: [
+      "webapps/**/"
+      "./lib/"
+      "./config/"
     ]
-    env:
-      "NODE_ENV": "development"
-      "DEBUG": "boilerplate:*"
-      "DEBUG_COLORS": "y"
-  .on "change", ["build"]
+    ignore: [
+      "webapps/*/public/"
+      "./lib/gulp/"
+    ]
+  .on "restart", ["build"]
+

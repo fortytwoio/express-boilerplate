@@ -6,21 +6,18 @@ path = require "path"
 fs = require "fs"
 handleErrors = require "./util/handleErrors"
 
-# We set some globals for all gulp tasks
+# We set some globals for easier gulp tasks setup
 global.gulp = gulp
 global.gutil = gutil
+global.concat = concat
 global.path = path
 global.fs = fs
 global.changed = changed
 global.handleErrors = handleErrors
+global.isWatching = false
 
 gulpTasksDir = path.resolve __dirname, "tasks"
 tasks = fs.readdirSync gulpTasksDir
 tasks.forEach (taskFile) ->
-  taskName = path.basename taskFile, path.extname(taskFile)
-  .toLowerCase()
-  gutil.log "Adding Task '#{gutil.colors.magenta taskName}'"
-
-  # Every task in 'tasks/' gets added as task with its name set to the filename
-  gulp.task taskName, require "#{gulpTasksDir}/#{taskFile}"
+  require "#{gulpTasksDir}/#{taskFile}"
 

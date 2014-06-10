@@ -1,5 +1,1 @@
-module.exports = [
-  "build",
-  #"watch",
-  "monitor"
-]
+gulp.task "default", ["watch"]
