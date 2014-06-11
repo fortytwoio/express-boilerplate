@@ -1,4 +1,9 @@
 
+1.1.1 / 2014-06-11 
+==================
+
+ * Removed some unnecessary statements and removed unused jquery from example app.coffee
+
 1.1.0 / 2014-06-11 
 ==================
 
