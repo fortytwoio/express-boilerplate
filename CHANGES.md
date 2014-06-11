@@ -1,3 +1,9 @@
+
+1.1.0 / 2014-06-11 
+==================
+
+ * Refined Gulp tasks. Seperated gulp task files a bit more. Added coffee-reactify. Made all build tasks production|development environment aware
+
 1.0.0 / 2014-06-10 
 ==================
 
