@@ -6,6 +6,6 @@ AnotherTestWidget = require "./anothertestwidget"
 module.exports = TestComponent = React.createClass
     render: ->
         <div>
-            <h1>Hello from my React Test Widget!</h1>
+            <h1>Hello from my React Test Component!</h1>
             <AnotherTestWidget />
         </div>

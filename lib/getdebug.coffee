@@ -10,4 +10,4 @@ module.exports = getDebug = (applicationName, applicationRootPath)->
         debugParts = path.dirname("#{relativePath}").split("/")
         debugParts.push filename
         relativeIdentifier = debugParts.join ":"
-        return debugModule "#{applicationName}:#{relativeIdentifier.toLowerCase()}"
+        return debugModule "#{applicationName}:#{process.pid}:#{relativeIdentifier.toLowerCase()}"

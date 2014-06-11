@@ -6,9 +6,11 @@ session = require "cookie-session"
 bodyParser = require "body-parser"
 morgan = require "morgan"
 errorHandler = require "errorhandler"
+util = require "util"
 _ = require "lodash"
 
 debug = ROOT.get("debug")(__filename)
+debug "ENV", util.inspect(process.env.NODE_ENV)
 
 app = module.exports = express()
 
