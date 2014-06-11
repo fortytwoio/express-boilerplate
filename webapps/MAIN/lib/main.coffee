@@ -24,39 +24,39 @@ app.set "trust proxy", true
 app.locals.basedir = viewBaseDir # This will allow us to use absolute paths in jade when using the 'extends' directive
 
 if "development" is app.get "env"
-  debug "Setting development settings"
-  app.locals.pretty = true # This will pretty print html output in development mode
-  app.set "view cache", false
-  app.use morgan("dev")
+    debug "Setting development settings"
+    app.locals.pretty = true # This will pretty print html output in development mode
+    app.set "view cache", false
+    app.use morgan("dev")
 else
-  debug "Setting production settings"
-  app.locals.pretty = false
-  app.set "view cache", true
-  app.use morgan()
+    debug "Setting production settings"
+    app.locals.pretty = false
+    app.set "view cache", true
+    app.use morgan()
 
 app.use bodyParser()
 app.use cookieParser()
 
 sessionSettings = app.get "session"
 app.use session
-  keys: [sessionSettings.secret]
-  proxy: true
+            keys :  [ sessionSettings.secret ]
+            proxy : true
 
 
 # Make sure session.messages always exists and is an array
 app.use (request, response, next) ->
-  request.session.messages = request.session.messages or []
-  response.locals.messages = request.session.messages.splice(0)
-  next()
+    request.session.messages = request.session.messages or []
+    response.locals.messages = request.session.messages.splice(0)
+    next()
 
 
 # set baseurl based on mountpath
 app.use (request, response, next) ->
-  response.locals.baseUrl = request.baseUrl
-  next()
+    response.locals.baseurl = request.baseUrl
+    next()
 
 
 if "development" is app.get "env"
-  debug "Adding errorHandler"
-  app.use errorHandler()
+    debug "Adding errorHandler"
+    app.use errorHandler()
 

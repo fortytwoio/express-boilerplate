@@ -1,2 +1,2 @@
-gulp.task "setwatch", ()->
-  global.isWatching = true
+gulp.task "setwatch", ->
+    global.isWatching = true

@@ -1,4 +1,4 @@
-module.exports = ()->
-  console.log "Ich bins"
+module.exports = ->
+    console.log "Its me #{__filename}"
 
 

@@ -11,9 +11,9 @@ DELETE  /:id              ->  exports.destroy
 debug = ROOT.get("debug")(__filename)
 
 exports.index = (request, response) ->
-  debug "Requested index"
-  response.render "index"
+    debug "Requested index"
+    response.render "index"
 
 exports.new = (request, response) ->
-  debug "Requested index/new"
-  response.render "index/new"
+    debug "Requested index/new"
+    response.render "index/new"
