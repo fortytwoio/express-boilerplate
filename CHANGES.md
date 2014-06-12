@@ -1,4 +1,9 @@
 
+1.3.1 / 2014-06-12 
+==================
+
+ * Removed lib/defaultRoutingSetup and created separate npm module
+
 1.3.0 / 2014-06-12 
 ==================
 
