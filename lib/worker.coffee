@@ -7,7 +7,7 @@ fileloader = require "loadfiles"
 loadWebApps = require "./loadwebapps"
 setupAppRouting = require "./setupapprouting"
 
-module.exports = app = express()
+module.exports = global.ROOT = app = express()
 
 configFilePath = path.resolve __dirname, "..", "config"
 config = require configFilePath

@@ -1,7 +1,8 @@
-cluster = require "cluster"
+clusterMaster = require "cluster-master"
 
-if cluster.isMaster
-    require "./master"
-else
-    # We set the root app as a global, accessible everywhere as 'ROOT'
-    module.exports = global.ROOT = require "./worker"
+os = require "os"
+cpuCount = os.cpus().length
+
+clusterMaster
+    exec : "#{__dirname}/worker.coffee"
+    size : cpuCount ## This is the default anyways
