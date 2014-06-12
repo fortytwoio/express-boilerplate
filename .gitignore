@@ -6,7 +6,4 @@ config/*
 !config/*.tpl
 *.pid
 npm-debug.log
-!node_modules/lib/**/*.*
-public/css
-public/img
-public/js
+public/*

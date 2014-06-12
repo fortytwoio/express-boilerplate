@@ -1,6 +1,5 @@
 path = require "path"
 express = require "express"
-favicon = require "static-favicon"
 cookieParser = require "cookie-parser"
 session = require "cookie-session"
 bodyParser = require "body-parser"
