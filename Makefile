@@ -11,10 +11,7 @@ clean:
 	@rm -rf "./tmp"
 
 build:
-	@npm run build
-
-watch:
-	@npm run watch
+	@NODE_ENV=production npm run build
 
 install:
 	@npm install

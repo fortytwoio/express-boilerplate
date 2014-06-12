@@ -1,6 +1,6 @@
 debugModule = require "debug"
 debug = debugModule "setupapprouting"
-defaultRoutingSetup = require "./defaultroutingsetup"
+defaultRoutingSetup = require "express-simple-routing"
 
 module.exports = setupAppRouting = (app, controllers, routers) ->
     setup = (routeName, actions) ->
