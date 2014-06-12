@@ -1,4 +1,9 @@
 
+1.3.0 / 2014-06-12 
+==================
+
+ * Added repl for cluster administration thanks to isaacs/cluster-master
+
 1.2.1 / 2014-06-12 
 ==================
 
