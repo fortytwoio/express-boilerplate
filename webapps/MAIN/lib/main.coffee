@@ -7,15 +7,14 @@ morgan = require "morgan"
 errorHandler = require "errorhandler"
 util = require "util"
 _ = require "lodash"
+root = require.main.exports
 
-debug = ROOT.get("debug")(__filename)
-debug "ENV", util.inspect(process.env.NODE_ENV)
+debug = root.get("debug")(__filename)
+app = exports = module.exports = express()
 
-app = module.exports = express()
-
-parentSettings = if ROOT.settings then ROOT.settings else {}
+parentSettings = if root.settings then root.settings else {}
 app.settings = _.assign app.settings, parentSettings
-parentLocals = if ROOT.locals then ROOT.locals else {}
+parentLocals = if root.locals then root.locals else {}
 app.locals = _.assign app.locals, parentLocals
 
 viewBaseDir = path.join __dirname, "..", "views"

@@ -1,4 +1,9 @@
 
+1.4.0 / 2014-06-16 
+==================
+
+ * Updated external deps. getDebug works in a different way now.
+
 1.3.1 / 2014-06-12 
 ==================
 

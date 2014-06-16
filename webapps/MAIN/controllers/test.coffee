@@ -1,4 +1,4 @@
-debug = ROOT.get("debug")(__filename)
+debug = require.main.exports.get("debug")(__filename)
 
 exports.index = (request, response) ->
     debug "requested test/index", request.query

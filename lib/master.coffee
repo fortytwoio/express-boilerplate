@@ -3,6 +3,6 @@ clusterMaster = require "cluster-master"
 os = require "os"
 cpuCount = os.cpus().length
 
-clusterMaster
-    exec : "#{__dirname}/worker.coffee"
+module.exports = clusterMaster
+    exec : "#{__dirname}/root.coffee"
     size : cpuCount ## This is the default anyways

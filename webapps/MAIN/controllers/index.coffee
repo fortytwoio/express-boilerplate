@@ -8,7 +8,8 @@ PUT     /:id              ->  exports.update
 DELETE  /:id              ->  exports.destroy
 ###
 
-debug = ROOT.get("debug")(__filename)
+root = require.main.exports
+debug = root.get("debug")(__filename)
 
 exports.index = (request, response) ->
     debug "Requested index"
