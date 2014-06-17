@@ -1,8 +1,8 @@
 
-n.n.n / 2014-06-17 
+1.5.0 / 2014-06-17 
 ==================
 
-
+ * Added mocha gulp task. Added livereload gulp task
 
 1.4.1 / 2014-06-17 
 ==================
