@@ -1,7 +1,7 @@
 imagemin = require "gulp-imagemin"
 
-SRC = "./webapps/MAIN/public/img/**/*.*"
-DEST = "./public/img/"
+SRC = "webapps/MAIN/public/img/**/*.*"
+DEST = "public/img/"
 
 gulp.task "images", ->
     gulp.src SRC
@@ -12,4 +12,3 @@ gulp.task "images", ->
         interlaced : true
     }
     .pipe gulp.dest(DEST)
-    return null

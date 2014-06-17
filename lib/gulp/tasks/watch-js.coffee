@@ -1,4 +1,3 @@
 gulp.task "watch:js", ->
     # do not use path starting with './' when you also use file globs. Does not work correctly
-    gulp.watch "webapps/**/public/js/**/*", [ "copy:js" ]
-    return null
+    gulp.watch "webapps/**/public/js/**/*.js", [ "copy:js" ]

@@ -20,5 +20,3 @@ exports.addMessage = (request, response) ->
         text : "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
     }
     response.render "test/message"
-
-

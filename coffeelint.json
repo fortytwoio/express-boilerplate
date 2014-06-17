@@ -1,6 +1,6 @@
 {
     "arrow_spacing": {
-        "level": "ignore"
+        "level": "error"
     },
     "camel_case_classes": {
         "level": "error"

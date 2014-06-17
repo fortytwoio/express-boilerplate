@@ -8,15 +8,10 @@ gulp.task "monitor", ->
         watch : [
             "webapps/**/"
             "./lib/"
-            "./config/"
-            "./package.json"
-            "./index.js"
         ]
         ignore : [
             "webapps/*/public/"
+            "webapps/*/tests/"
             "./lib/gulp/"
         ]
     }
-    .on "restart", [ "build" ]
-    return null
-

@@ -6,7 +6,7 @@ Timer = require "./timer"
 module.exports = AnotherTestWidget = React.createClass
     render: ->
         <div>
-            <p>This is AnotherTestWidget</p>
+            <h3>AnotherTestWidget</h3>
             <Timer />
         </div>
 

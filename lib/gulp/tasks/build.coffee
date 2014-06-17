@@ -1,1 +1,1 @@
-gulp.task "build", [ "coffeelint", "browserify", "less", "images", "copy" ]
+gulp.task "build", [ "coffeelint", "test", "browserify", "less", "images", "copy" ]

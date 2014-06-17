@@ -1,2 +1,2 @@
 module.exports = ->
-    console.log "hello in bar #{__filename} dirname: #{__dirname}"
+    console.log "Hello i am in #{__filename} dirname: #{__dirname}"

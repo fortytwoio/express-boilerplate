@@ -5,6 +5,7 @@ gulpif = require "gulp-if"
 concat = require "gulp-concat"
 path = require "path"
 fs = require "fs"
+livereload = require "gulp-livereload"
 
 # We set some gulp plugins as globals, for easier gulp task configuration and setup
 global.gulp = gulp
@@ -12,6 +13,7 @@ global.gutil = gutil
 global.concat = concat
 global.changed = changed
 global.gulpif = gulpif
+global.livereload = livereload
 
 global.isWatching = false
 
