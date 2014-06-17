@@ -14,10 +14,11 @@ exports.getFoo = (request, response) ->
 
 exports.addMessage = (request, response) ->
     debug "Add a message to the session"
-    request.session.messages.push
-        type :  "success"
+    request.session.messages.push {
+        type : "success"
         title : "Successfully did something!"
-        text :  "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
+        text : "Wooohooo. <br/>You did SOMETHING! Everyone likes that!"
+    }
     response.render "test/message"
 
 

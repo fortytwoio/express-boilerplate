@@ -33,7 +33,8 @@ if "development" is app.get "env"
 loadApps webappsPath, (error, webapps) ->
     debug "Loaded %s webapp(s)", webapps.length
     # Mounting all found webapps
-    # webapp: { mountpoint: '/', app: [express app], name: "ROOT", path: "/path/to/webapps/ROOT", controllers: [], routers: [] }
+    # webapp: { mountpoint: '/', app: [express app], name: "ROOT",
+    # path: "/path/to/webapps/ROOT", controllers: [], routers: [] }
     webapps.forEach (webapp) ->
         debug "Mounting '#{webapp.name}' at '#{webapp.mountpoint}'"
         app.use webapp.mountpoint, webapp.app

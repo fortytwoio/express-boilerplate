@@ -38,9 +38,10 @@ app.use bodyParser()
 app.use cookieParser()
 
 sessionSettings = app.get "session"
-app.use session
-            keys :  [ sessionSettings.secret ]
-            proxy : true
+app.use session {
+    keys : [ sessionSettings.secret ]
+    proxy : true
+}
 
 
 # Make sure session.messages always exists and is an array

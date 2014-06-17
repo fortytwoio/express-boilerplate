@@ -7,25 +7,30 @@ bundleLogger = require "../util/bundlelogger"
 
 DEST = "public/js/"
 
-gulp.task "browserify", ()->
+gulp.task "browserify", (callback)->
     bundleMethod = if global.isWatching then watchify else browserify
 
-    bundler = bundleMethod
-        entries :        [ "./webapps/MAIN/public/coffee/app.coffee" ]
-        extensions :     [ ".coffee", ".js", ".json", ".cjsx" ]
+    bundler = bundleMethod {
+        entries : [ "./webapps/MAIN/public/coffee/app.coffee" ]
+        extensions : [ ".coffee", ".js", ".json", ".cjsx" ]
         bundleExternal : false
-        insertGlobals :  false
-        detectGlobals :  false
+        insertGlobals : false
+        detectGlobals : false
+    }
 
-    bundle = ()->
+    bundle = ->
         bundleLogger.start()
-        bundler.bundle
+        bundler.bundle {
             debug : !global.isProduction
+        }
 
         .pipe source("app.js")
         .pipe gulpif(global.isProduction, streamify(uglify()))
         .pipe gulp.dest(DEST)
-        .on "end", bundleLogger.end
+        .on "end", ->
+            bundleLogger.end()
+        .on "error", (error)->
+            callback error
         return bundler
 
     if global.isWatching then bundler.on "update", bundle

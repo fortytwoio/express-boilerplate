@@ -1,4 +1,9 @@
 
+1.4.1 / 2014-06-17 
+==================
+
+ * Added coffeelint task and configuration. Reformatted code according to rules
+
 1.4.0 / 2014-06-16 
 ==================
 

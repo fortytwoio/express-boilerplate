@@ -1,20 +1,22 @@
 nodemon = require "gulp-nodemon"
 
 gulp.task "monitor", ->
-    nodemon
-        script :  "./"
-        ext :     "coffee js json"
+    nodemon {
+        script : "./"
+        ext : "coffee js json"
         verbose : false
-        watch :   [
+        watch : [
             "webapps/**/"
             "./lib/"
             "./config/"
             "./package.json"
             "./index.js"
         ]
-        ignore :  [
+        ignore : [
             "webapps/*/public/"
             "./lib/gulp/"
         ]
+    }
     .on "restart", [ "build" ]
+    return null
 
