@@ -1,4 +1,9 @@
 
+1.6.1 / 2014-06-18 
+==================
+
+ * Updated package.json to forked cluster-master and moved to list reporter as it is more readable
+
 1.6.0 / 2014-06-18 
 ==================
 

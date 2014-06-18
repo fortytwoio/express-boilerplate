@@ -9,7 +9,7 @@ global.assert = assert
 gulp.task "test", ->
     gulp.src [ "tests/**/*" , "webapps/**/tests/*" ], { read : false }
     .pipe mocha({
-        reporter : "spec",
+        reporter : "list",
         ui : "bdd"
         globals : [
             "chai",
