@@ -1,4 +1,9 @@
 
+1.6.0 / 2014-06-18 
+==================
+
+ * Added Gulp Notify for errors and Livereload events. Added possibility to disable notifications and livereload with env vars
+
 1.5.0 / 2014-06-17 
 ==================
 

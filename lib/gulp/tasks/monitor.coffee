@@ -15,3 +15,9 @@ gulp.task "monitor", ->
             "./lib/gulp/"
         ]
     }
+    .on "restart", (files) ->
+        notify {
+            title : "Server restart triggered"
+            message : "by: #{files.join ', '}"
+            open : "http://localhost:3000"
+        }

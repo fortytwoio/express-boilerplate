@@ -9,7 +9,3 @@ test = ->
     React.renderComponent TestComponent(), document.getElementById("reactive")
 
 test()
-
-
-
-

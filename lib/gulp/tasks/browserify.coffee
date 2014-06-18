@@ -7,7 +7,7 @@ bundleLogger = require "../util/bundlelogger"
 
 DEST = "public/js/"
 
-gulp.task "browserify", ->
+gulp.task "browserify", (callback) ->
     bundleMethod = if global.isWatching then watchify else browserify
 
     bundler = bundleMethod {
@@ -20,10 +20,16 @@ gulp.task "browserify", ->
 
     bundle = ->
         bundleLogger.start()
-        bundler.bundle {
+        stream = bundler.bundle {
             debug : !global.isProduction
         }
-
+        stream.on "error", (error) ->
+            notify {
+                title : "Browserify: #{error.name}"
+                message : "#{error.message}"
+                open : "file://#{error.parent}"
+            }
+            callback error
         .pipe source("app.js")
         .pipe gulpif(global.isProduction, streamify(uglify()))
         .pipe gulp.dest(DEST)
