@@ -1,7 +1,7 @@
 coffeelint = require "gulp-coffeelint"
 
 gulp.task "coffeelint", (callback) ->
-    gulp.src [ "webapps/*/**/*.coffee", "lib/**/*.coffee" ]
+    gulp.src [ "webapps/*/**/*.coffee", "!webapps/*/public/vendors/**", "lib/**/*.coffee" ]
     .pipe coffeelint("./coffeelint.json")
     .pipe coffeelint.reporter()
     .pipe coffeelint.reporter("fail")

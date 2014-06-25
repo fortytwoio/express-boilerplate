@@ -18,8 +18,3 @@ exports.index = (request, response) ->
 exports.new = (request, response) ->
     debug "Requested index/new"
     response.render "index/new"
-
-exports.show = (request, response) ->
-    debug "Show item with '#{request.params.id}'"
-    response.render "index/new"
-

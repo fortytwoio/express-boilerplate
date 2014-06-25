@@ -1,0 +1,9 @@
+extends /layouts/default
+
+block content
+    p Added a message, click on any link and the message should get displayed
+
+
+block pagehead
+    - var breadcrumbs = [{"name": "Home", "href":"/"}, {"name": "Test", "href": "/test/"},{"name":"Message","href": "/test/message"}];
+    +pagehead("TEST/MESSAGE", breadcrumbs)

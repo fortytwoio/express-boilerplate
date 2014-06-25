@@ -1,1 +1,1 @@
-gulp.task "copy", [ "copy:css", "copy:js", "copy:other" ]
+gulp.task "copy", [ "copy:css", "copy:js", "copy:vendors", "copy:other" ]

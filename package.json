@@ -26,7 +26,8 @@
     "loadfiles": "^0.1.1",
     "lodash": "^2.4.0",
     "morgan": "^1.1.1",
-    "node-notifier": "^3.0.4"
+    "node-notifier": "^3.0.4",
+    "path-to-regexp": "^0.2.1"
   },
   "devDependencies": {
     "browserify": "^4.0.0",
@@ -35,7 +36,6 @@
     "coffeelint": "^1.5.2",
     "coffeelint-stylish": "^0.1.0",
     "gulp-changed": "^0.4.0",
-    "gulp-clean": "^0.3.0",
     "gulp-coffeelint": "^0.3.3",
     "gulp-concat": "^2.2.0",
     "gulp-if": "^1.2.1",
@@ -45,6 +45,7 @@
     "gulp-minify-css": "^0.3.4",
     "gulp-mocha": "^0.4.1",
     "gulp-nodemon": "^1.0.0",
+    "gulp-rimraf": "^0.1.0",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^0.3.0",
     "gulp-util": "^2.2.0",

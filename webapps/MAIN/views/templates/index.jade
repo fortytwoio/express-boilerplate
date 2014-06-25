@@ -1,0 +1,12 @@
+extends /layouts/default
+
+
+block content
+    h2 Hello, this is a photo
+    img.img-responsive(src="#{baseurl}/img/photo.jpg")
+
+
+block pagehead
+    - var breadcrumbs = [{"name": "Home", href:"/"}];
+    +pagehead("INDEX", breadcrumbs)
+

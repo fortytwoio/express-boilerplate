@@ -1,0 +1,9 @@
+extends /layouts/default
+
+block content
+    p foo
+
+
+block pagehead
+    - var breadcrumbs = [{"name": "Home", "href":"/"}, {"name": "Test", "href": "/test/"},{"name":"Foo","href": "/test/foo"}];
+    +pagehead("TEST/FOO", breadcrumbs)

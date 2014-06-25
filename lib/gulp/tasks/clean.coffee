@@ -1,9 +1,7 @@
-clean = require "gulp-clean"
-SRC = "public/**"
+rimraf = require "gulp-rimraf"
+
+SRC = [ "public/**", "public/**/*.*", "!public/", "!public/.keep" ]
 
 gulp.task "clean", ->
-    gulp.src SRC
-    .pipe clean {
-        read : false
-        force : true
-    }
+    gulp.src SRC, { read : false }
+    .pipe rimraf { force : true }
