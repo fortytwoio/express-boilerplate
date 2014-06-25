@@ -1,4 +1,9 @@
 
+1.7.0 / 2014-06-25 
+==================
+
+ * Added basic CleanZone styling. Updated modules. removed deprecation warnings. Some tweaks
+
 1.6.1 / 2014-06-18 
 ==================
 
