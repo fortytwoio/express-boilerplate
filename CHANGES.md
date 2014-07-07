@@ -1,15 +1,14 @@
 
-<<<<<<< HEAD
+1.7.2 / 2014-07-07 
+==================
+
+ * Refactored
+
 1.7.1 / 2014-07-07 
 ==================
  * Some refactorings and Makefile adjustments
-=======
-n.n.n / 2014-06-26 
-==================
-
  * Renamed target
  * Updated some gulp tasks. Added make targets (you should use make as your cli not gulp directly)
->>>>>>> feature/GulpRevManifestViewHelper
 
 1.7.0 / 2014-06-25 
 ==================
