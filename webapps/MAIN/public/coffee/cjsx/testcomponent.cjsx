@@ -7,6 +7,6 @@ module.exports = TestComponent = React.createClass
     displayName: "TestComponent"
     render: ->
         <div>
-            <h1>Hello from my React Test Component!</h1>
+            <h1>Hello from my Component!</h1>
             <AnotherTestWidget />
         </div>

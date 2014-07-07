@@ -1,6 +1,16 @@
-module.exports = ->
+
+
+init = ->
+
+    $(".nano").nanoScroller()
+    tool = $("<div id='sub-menu-nav' style='position:fixed;z-index:9999;'></div>")
+
     showMenu = (_this, e) ->
-        if ($("#cl-wrapper").hasClass("sb-collapsed") or ($(window).width() > 755 and $(window).width() < 963)) and $("ul", _this).length > 0
+        $win = $(window)
+        width = $win.width()
+        ulCount = $("ul", _this).length
+        hasCollapsed = $("#cl-wrapper").hasClass("sb-collapsed")
+        if (hasCollapsed or (width > 755 and width < 963)) and ulCount > 0
             $(_this).removeClass "ocult"
             menu = $("ul", _this)
             unless $(".dropdown-header", _this).length
@@ -9,9 +19,10 @@ module.exports = ->
             tool.appendTo "body"
             top = ($(_this).offset().top + 8) - $(window).scrollTop()
             left = $(_this).width()
-            tool.css
+            tool.css {
                 top : top
                 left : left + 8
+            }
 
             tool.html "<ul class=\"sub-menu\">" + menu.html() + "</ul>"
             tool.show()
@@ -40,7 +51,7 @@ module.exports = ->
                 p.removeClass "open"
             else
                 p.addClass "open"
-            $("#cl-wrapper .nano").nanoScroller preventPageScrolling : true
+            $("#cl-wrapper .nano").nanoScroller { preventPageScrolling : true }
             return
 
         e.preventDefault()
@@ -48,8 +59,7 @@ module.exports = ->
 
     $(".cl-toggle").click (e) ->
         ul = $(".cl-vnavigation")
-        ul.slideToggle 300, "swing", ->
-
+        ul.slideToggle 300, "swing"
         e.preventDefault()
         return
 
@@ -57,9 +67,7 @@ module.exports = ->
         toggleSideBar()
         return
 
-    $(".nano").nanoScroller()
 
-    tool = $("<div id='sub-menu-nav' style='position:fixed;z-index:9999;'></div>")
     $(".cl-vnavigation li").hover ((e) ->
         showMenu this, e
         return
@@ -86,7 +94,7 @@ module.exports = ->
         tool.hide()
         return
 
-    $(document).on "touchstart click", (e) ->
+    $(document).on "touchstart click", ->
         tool.fadeOut "fast"
         return
 
@@ -95,7 +103,11 @@ module.exports = ->
         return
 
     $(".cl-vnavigation li").click (e) ->
-        if (($("#cl-wrapper").hasClass("sb-collapsed") or ($(window).width() > 755 and $(window).width() < 963)) and $("ul", this).length > 0) and not ($(window).width() < 755)
+        $win = $(window)
+        width = $win.width()
+        ulCount = $("ul", this).length
+        hasCollapsed = $("#cl-wrapper").hasClass("sb-collapsed")
+        if ((hasCollapsed or (width > 755 and width < 963)) ulCount > 0) and not (width < 755)
             showMenu this, e
             e.stopPropagation()
         return
@@ -115,12 +127,9 @@ module.exports = ->
 
     jQuery(".back-to-top").click (event) ->
         event.preventDefault()
-        jQuery("html, body").animate
-            scrollTop : 0
-        , duration
-        false
+        jQuery("html, body").animate { scrollTop : 0 }, duration
+        return false
 
-    $("body").css
-        opacity : 1
-        "margin-left" : 0
+    $("body").css { opacity : 1, "margin-left" : 0 }
 
+module.exports = init

@@ -1,6 +1,6 @@
 nodemon = require "gulp-nodemon"
 
-gulp.task "monitor", ->
+gulp.task "monitor", [ "coffeelint", "test" ], ->
     nodemon {
         script : "./"
         ext : "coffee js json"

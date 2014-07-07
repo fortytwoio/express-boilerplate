@@ -5,6 +5,7 @@ gulpif = require "gulp-if"
 concat = require "gulp-concat"
 path = require "path"
 fs = require "fs"
+rev = require "gulp-rev"
 livereload = require "gulp-livereload"
 Notification = require "node-notifier"
 util = require "util"
@@ -29,6 +30,7 @@ global.changed = changed
 global.gulpif = gulpif
 global.livereload = livereload
 global.util = util
+global.rev = rev
 
 # You can use this global function in .on "error" callbacks for instance
 global.notify = (options) ->

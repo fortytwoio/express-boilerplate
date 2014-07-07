@@ -20,20 +20,20 @@ gulp.task "browserify", (callback) ->
 
     bundle = ->
         bundleLogger.start()
-        stream = bundler.bundle {
+        bundler.bundle {
             debug : !global.isProduction
         }
-        stream.on "error", (error) ->
+        .on "error", (error) ->
             notify {
                 title : "Browserify: #{error.name}"
                 message : "#{error.message}"
                 open : "file://#{error.parent}"
             }
             callback error
+        .on "end", bundleLogger.end
         .pipe source("app.js")
         .pipe gulpif(global.isProduction, streamify(uglify()))
         .pipe gulp.dest(DEST)
-        .on "end", bundleLogger.end
         return bundler
 
     if global.isWatching then bundler.on "update", bundle

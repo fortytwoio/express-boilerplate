@@ -20,5 +20,4 @@ gulp.task "test", ->
         notify {
             title : "#{error.plugin}: #{error.name}"
             message : "#{error.message}"
-
         }

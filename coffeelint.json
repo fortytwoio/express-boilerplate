@@ -16,7 +16,7 @@
         }
     },
     "cyclomatic_complexity": {
-        "value": 4,
+        "value": 8,
         "level": "warn"
     },
     "duplicate_key": {
@@ -35,8 +35,8 @@
     },
     "max_line_length": {
         "value": 120,
-        "level": "error",
-        "limitComments": true
+        "level": "warn",
+        "limitComments": false
     },
     "missing_fat_arrows": {
         "level": "ignore"

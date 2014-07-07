@@ -10,4 +10,6 @@ gulp.task "coffeelint", (callback) ->
             title : "CoffeeLint: #{error.name}"
             message : error.message
         }
-        callback error
+        callback()
+    .on "end", callback
+    return
