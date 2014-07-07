@@ -1,4 +1,8 @@
 
+1.7.1 / 2014-07-07 
+==================
+ * Some refactorings and Makefile adjustments
+
 1.7.0 / 2014-06-25 
 ==================
 
