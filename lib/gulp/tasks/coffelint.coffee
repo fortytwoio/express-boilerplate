@@ -1,6 +1,6 @@
 coffeelint = require "gulp-coffeelint"
 
-gulp.task "coffeelint", (callback) ->
+gulp.task "coffeelint", ->
     gulp.src [ "webapps/*/**/*.coffee", "!webapps/*/public/vendors/**", "lib/**/*.coffee" ]
     .pipe coffeelint("./coffeelint.json")
     .pipe coffeelint.reporter()
@@ -10,6 +10,4 @@ gulp.task "coffeelint", (callback) ->
             title : "CoffeeLint: #{error.name}"
             message : error.message
         }
-        callback()
-    .on "end", callback
     return
