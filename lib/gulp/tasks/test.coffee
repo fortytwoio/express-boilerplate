@@ -7,9 +7,9 @@ global.chai = chai
 global.assert = assert
 
 gulp.task "test", ->
-    gulp.src [ "tests/**/*" , "webapps/*/tests/**/*" ], { read : false }
+    gulp.src [ "tests/**/*", "app/tests/**/*" ], { read : false }
     .pipe mocha({
-        reporter : "list",
+        reporter : "spec",
         ui : "bdd"
         globals : [
             "chai",

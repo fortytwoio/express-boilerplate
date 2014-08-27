@@ -1,1 +1,1 @@
-gulp.task "default", [ "watch", "monitor" ]
+gulp.task "default", [ "test", "setwatch", "build", "watch", "monitor" ]

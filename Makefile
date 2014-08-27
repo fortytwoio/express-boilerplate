@@ -41,4 +41,7 @@ update:
 deploy:
 	git push git@app.example.com:~/express-boilerplate master
 
-.PHONY: all test clean empty_public build revision dev run install update deploy
+deploy-dev:
+	git push git@app.example.com:~/express-boilerplate dev
+
+.PHONY: all lint test clean purge build revision dev run install update deploy

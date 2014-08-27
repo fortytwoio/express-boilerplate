@@ -1,7 +1,7 @@
 less = require "gulp-less"
 minifyCss = require "gulp-minify-css"
 
-SRC = "webapps/MAIN/public/less/**/*.less"
+SRC = "app/public/less/**/*.less"
 DEST = "public/css"
 
 lessOptions = {

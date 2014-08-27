@@ -1,20 +1,21 @@
 nodemon = require "gulp-nodemon"
 
-gulp.task "monitor", [ "coffeelint", "test" ], ->
+gulp.task "monitor", [ "test" ], ->
     nodemon {
         script : "./"
         ext : "coffee js json"
         verbose : false
         watch : [
-            "webapps/**/"
-            "./lib/"
+            "app/"
+            "lib/"
         ]
         ignore : [
-            "webapps/*/public/"
-            "webapps/*/tests/"
+            "app/public/"
+            "app/tests/"
             "./lib/gulp/"
         ]
     }
+    .on 'change', [ 'test' ]
     .on "restart", (files = []) ->
         notify {
             title : "Server restart triggered"

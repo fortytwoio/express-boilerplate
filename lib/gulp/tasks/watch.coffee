@@ -1,2 +1,1 @@
-gulp.task "watch", [ "coffeelint", "test", "setwatch", "build", "watch:less", "watch:css", "watch:img", "watch:js",
-    "watch:jade", "watch:public", "watch:tests", "watch:coffee" ]
+gulp.task "watch", [ "build", "watch:less", "watch:css", "watch:img", "watch:js", "watch:tests", "watch:coffee", "watch:jade", "watch:public" ]
