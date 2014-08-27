@@ -43,6 +43,7 @@ global.notify = (options) ->
 
 # You can use this global function if you want to get notified on changes which triggers a pagereload in livereload
 global.notifyChanged = (changed) ->
+    console.log "CHANGED", changed
     if doLivereload then livereload.changed.apply this, changed
     notify {
         title : "Gulp: Changed"

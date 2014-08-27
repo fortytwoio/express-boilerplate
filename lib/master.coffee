@@ -1,7 +1,7 @@
 clusterMaster = require "cluster-master"
-
 os = require "os"
-cpuCount = os.cpus().length
+
+cpuCount = parseInt process.env.APP_WORKERS or os.cpus().length or 1
 
 module.exports = clusterMaster {
     exec : "#{__dirname}/root.coffee"

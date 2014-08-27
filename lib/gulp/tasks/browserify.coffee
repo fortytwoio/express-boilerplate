@@ -11,7 +11,7 @@ gulp.task "browserify", (callback) ->
     bundleMethod = if global.isWatching then watchify else browserify
 
     bundler = bundleMethod {
-        entries : [ "./webapps/MAIN/public/coffee/app.coffee" ]
+        entries : [ "./app/public/coffee/app.coffee" ]
         extensions : [ ".coffee", ".js", ".json", ".cjsx" ]
         bundleExternal : false
         insertGlobals : false
