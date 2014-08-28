@@ -1,6 +1,6 @@
 imagemin = require "gulp-imagemin"
 
-SRC = "app/public/img/**/*.*"
+SRC = "app/public/img/**/*"
 DEST = "public/img/"
 
 gulp.task "images", ->
