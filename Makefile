@@ -4,11 +4,11 @@ DEBUG ?= boiler*
 
 all: clean install build revision
 
-lint:
-	@NODE_ENV=$(NODE_ENV) npm run lint
-
 test:
 	@NODE_ENV=$(NODE_ENV) npm run test
+
+test-watch:
+	@NODE_ENV=$(NODE_ENV) npm run test-watch
 
 clean:
 	@echo "Empty './public' dir"
